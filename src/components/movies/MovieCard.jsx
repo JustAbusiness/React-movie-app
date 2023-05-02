@@ -1,21 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 
 
 const MovieCard = ({ item }) => {
     const {
         backdrop_path,
+        poster_path,
         title,
         name,
         vote_average,   
         release_date,
         first_air_date,
         overview,
+        id
     } = item
+
+    const navigate = useNavigate();
 
     return (
         <div className="movies-card flex flex-col rounded-lg p-3 bg-slate-800 hover:bg-gray-700 duration-150 select-none" >
-            <img className="w-full h-[250px] rounded-lg object-cover mb-5" src={`https://image.tmdb.org/t/p/w500/${backdrop_path}`} alt="" />
+            <img className="w-full h-[250px] rounded-lg object-cover mb-5" src={`https://image.tmdb.org/t/p/w500/${backdrop_path || poster_path}`} alt="" />
             <div className="flex flex-col flex-1">
                 <h3 className="font-semibold text-base mb-3 text-start whitespace-nowrap overflow-hidden "> {title || name} </h3>
                 <div className="flex items-center justify-between text-sm opacity-50 mb-5">
@@ -33,9 +38,9 @@ const MovieCard = ({ item }) => {
                     </svg> </span>
                 </div>
                 <p className="italic whitespace-pre-wrap overflow-hidden text-ellipsis text-sm py-4 h-[100px] mb-5"> {overview}</p>    
-                {/* <p className="italic overflow-wrap word-break-all break-words  text-sm py-4 h-[100px] mb-5"> {overview}</p>     */}
+                
 
-                <button className="py-3 px-5 rounded-lg capitalize bg-primary text-base tracking-wide w-full hover:bg-pink-400 transition-all duration-100 mt-auto"> Watch now </button>
+                <button onClick={() => navigate(`/movie/${id}`)}  className="py-3 px-5 rounded-lg capitalize bg-primary text-base tracking-wide w-full hover:bg-pink-400 transition-all duration-100 mt-auto"> Watch now </button>
             </div>
         </div>
 

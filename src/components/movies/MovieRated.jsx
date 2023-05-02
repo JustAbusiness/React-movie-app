@@ -12,7 +12,7 @@ const MovieRated = () => {
     useEffect(() => {
         if (data && data.results) setMovieRate(data.results);
     }, [data])
-    console.log(movieRate);
+   
 
     return (
         <div className="movie-list">
