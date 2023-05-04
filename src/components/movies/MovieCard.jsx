@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
+import Button from '../button/Button';
 
 
 const MovieCard = ({ item }) => {
@@ -40,7 +41,7 @@ const MovieCard = ({ item }) => {
                 <p className="italic whitespace-pre-wrap overflow-hidden text-ellipsis text-sm py-4 h-[100px] mb-5"> {overview}</p>    
                 
 
-                <button onClick={() => navigate(`/movie/${id}`)}  className="py-3 px-5 rounded-lg capitalize bg-primary text-base tracking-wide w-full hover:bg-pink-400 transition-all duration-100 mt-auto"> Watch now </button>
+              <Button bgColor="primary" onClick={() => navigate(`movie/${id}`)}> Watch Now</Button>
             </div>
         </div>
 

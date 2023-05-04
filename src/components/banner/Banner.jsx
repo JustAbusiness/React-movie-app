@@ -3,6 +3,7 @@ import  useSWR  from "swr";
 import { fetcher } from '../../config';
 import { SwiperSlide, Swiper } from 'swiper/react';
 import { useNavigate } from 'react-router-dom';
+import Button from '../button/Button';
 
 
 const Banner = () => {
@@ -54,7 +55,7 @@ function BannerItem({item}) {
                             Wibu
                         </span>
                     </div>
-                    <button onClick={() => navigate(`/movie/${id}`)}  className="py-3 px-6 rounded-lg bg-primary hover:bg-pink-400 text-white font-medium"> Watch Now</button>
+                    <Button bgColor="secondary" onClick={() => navigate(`movie/${id}`)}  className="w-auto"> Watch Now</Button>
                 </div>
             </div>
     );
